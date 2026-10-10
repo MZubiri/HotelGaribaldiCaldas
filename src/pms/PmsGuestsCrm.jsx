@@ -228,42 +228,53 @@ export function PmsGuestsCrm({ currency }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #121822;
+          background: #ffffff;
           padding: 1.25rem 1.75rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
           gap: 1rem;
+          flex-wrap: wrap;
         }
         .crm-search-wrap {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          background: #0d121a;
-          border: 1px solid #233042;
-          padding: 0.55rem 0.95rem;
-          border-radius: 6px;
-          min-width: 360px;
+          gap: 0.65rem;
+          background: #faf8f5;
+          border: 1.5px solid #d9d2c5;
+          padding: 0.65rem 1rem;
+          border-radius: 8px;
+          min-width: 340px;
+          transition: all 0.2s;
+        }
+        .crm-search-wrap:focus-within {
+          background: #ffffff;
+          border-color: #c5a059;
+          box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
         }
         .crm-search-wrap input {
           border: none;
           background: transparent;
           outline: none;
           width: 100%;
-          font-size: 0.88rem;
-          color: #f0f6fc;
+          font-size: 0.92rem;
+          color: #0e201a;
+          font-family: var(--font-sans);
+        }
+        .crm-search-wrap input::placeholder {
+          color: #78857f;
         }
 
         .crm-cards-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-          gap: 1.75rem;
+          gap: 1.5rem;
         }
         .crm-guest-card {
-          background: #121822;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
           padding: 1.75rem;
           display: flex;
           flex-direction: column;
@@ -271,7 +282,8 @@ export function PmsGuestsCrm({ currency }) {
         }
         .crm-guest-card:hover {
           transform: translateY(-2px);
-          border-color: rgba(212, 175, 55, 0.3);
+          border-color: #c5a059;
+          box-shadow: 0 12px 30px rgba(14, 28, 23, 0.08);
         }
         .guest-card-top {
           display: flex;
@@ -281,51 +293,56 @@ export function PmsGuestsCrm({ currency }) {
           position: relative;
         }
         .guest-avatar-circle {
-          width: 44px;
-          height: 44px;
+          width: 46px;
+          height: 46px;
           border-radius: 50%;
-          background: #16202d;
-          color: #D4AF37;
+          background: #0e201a;
+          color: #c5a059;
           font-weight: 800;
-          font-family: 'Playfair Display', serif;
-          font-size: 1.2rem;
+          font-family: var(--font-serif);
+          font-size: 1.25rem;
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 1px solid #233042;
+          border: 2px solid #c5a059;
+          flex-shrink: 0;
         }
         .guest-name-block h4 {
           font-size: 1.15rem;
-          color: #f0f6fc;
+          color: #0e201a;
+          font-family: var(--font-serif);
+          font-weight: 700;
           line-height: 1.2;
+          margin: 0 0 0.15rem 0;
         }
         .guest-doc-pill {
-          font-size: 0.75rem;
-          color: #8b96a5;
+          font-size: 0.76rem;
+          color: #5a6b63;
         }
         .vip-crown-badge {
           margin-left: auto;
           display: inline-flex;
           align-items: center;
           gap: 0.25rem;
-          background: rgba(212, 175, 55, 0.15);
-          color: #D4AF37;
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          padding: 0.2rem 0.5rem;
-          border-radius: 4px;
+          background: #fdfbf7;
+          color: #8a6d2b;
+          border: 1px solid #c5a059;
+          padding: 0.25rem 0.55rem;
+          border-radius: 6px;
           font-size: 0.72rem;
           font-weight: 800;
+          text-transform: uppercase;
         }
 
         .guest-card-metrics {
           display: grid;
           grid-template-columns: 1fr 1.5fr;
           gap: 1rem;
-          background: #16202d;
-          padding: 0.75rem 1rem;
+          background: #faf8f5;
+          padding: 0.85rem 1rem;
           margin-bottom: 1.25rem;
-          border: 1px solid #233042;
-          border-radius: 6px;
+          border: 1.5px solid #ece6db;
+          border-radius: 8px;
         }
         .metric-box {
           display: flex;
@@ -334,71 +351,81 @@ export function PmsGuestsCrm({ currency }) {
         .metric-num {
           font-size: 1.15rem;
           font-weight: 800;
-          color: #D4AF37;
+          color: #0e201a;
         }
         .metric-sub {
           font-size: 0.72rem;
-          color: #8b96a5;
+          color: #5a6b63;
+          font-weight: 600;
+          text-transform: uppercase;
         }
 
         .guest-contact-rows {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          font-size: 0.85rem;
-          color: #c9d1d9;
+          font-size: 0.86rem;
+          color: #0e201a;
           margin-bottom: 1.25rem;
         }
         .contact-line {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.55rem;
         }
 
         .guest-preferences-box {
-          background: #16202d;
-          border-left: 3px solid #D4AF37;
-          border-radius: 0 6px 6px 0;
-          padding: 0.75rem 1rem;
-          font-size: 0.82rem;
+          background: #faf8f5;
+          border-left: 3px solid #c5a059;
+          border-radius: 0 8px 8px 0;
+          padding: 0.85rem 1rem;
+          font-size: 0.84rem;
           margin-top: auto;
         }
         .guest-preferences-box strong {
           display: block;
-          color: #D4AF37;
+          color: #8a6d2b;
+          font-size: 0.78rem;
+          text-transform: uppercase;
           margin-bottom: 0.2rem;
         }
         .guest-preferences-box p {
-          color: #8b96a5;
+          color: #5a6b63;
+          margin: 0;
           font-style: italic;
         }
 
         .crm-modal-box {
           max-width: 600px;
-          padding: 2.5rem;
-          background: #161b22;
-          border: 1px solid #30363d;
-          border-radius: 10px;
-          color: #f0f6fc;
+          width: 90%;
+          padding: 2.25rem 2.5rem;
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.35);
+          border-radius: 14px;
+          color: #0e201a;
+          box-shadow: 0 25px 60px rgba(14, 28, 23, 0.25);
         }
         .modal-header-line {
-          margin-bottom: 1.75rem;
+          margin-bottom: 1.5rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid #223042;
+          border-bottom: 1px solid #f0ebe1;
         }
         .modal-header-line h3 {
-          font-size: 1.4rem;
-          color: #f0f6fc;
-          font-family: 'Playfair Display', serif;
+          font-size: 1.45rem;
+          color: #0e201a;
+          font-family: var(--font-serif);
+          font-weight: 700;
+          margin: 0 0 0.25rem 0;
         }
         .modal-header-line p {
-          font-size: 0.85rem;
-          color: #8b96a5;
+          font-size: 0.86rem;
+          color: #5a6b63;
+          margin: 0;
         }
         .crm-modal-form {
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1.15rem;
         }
       `}</style>
     </div>

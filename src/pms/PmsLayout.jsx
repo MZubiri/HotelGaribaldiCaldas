@@ -349,8 +349,9 @@ export function PmsLayout({
         .brand-emblem {
           width: 38px;
           height: 38px;
-          background: #D4AF37;
-          color: #0b0f15;
+          background: #0e201a;
+          color: #c5a059;
+          border: 2px solid #c5a059;
           font-weight: 800;
           font-family: var(--font-serif);
           font-size: 1.15rem;
@@ -359,7 +360,7 @@ export function PmsLayout({
           justify-content: center;
           border-radius: 6px;
           flex-shrink: 0;
-          box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+          box-shadow: 0 2px 10px rgba(14, 32, 26, 0.2);
         }
 
         .brand-texts h3 {
@@ -367,11 +368,12 @@ export function PmsLayout({
           color: #ffffff;
           line-height: 1.1;
           margin: 0;
+          font-family: var(--font-serif);
         }
 
         .brand-texts span {
           font-size: 0.7rem;
-          color: #D4AF37;
+          color: #c5a059;
           letter-spacing: 0.05em;
         }
 
@@ -419,22 +421,22 @@ export function PmsLayout({
           width: 38px;
           height: 38px;
           border-radius: 50%;
-          background: #0d1117;
-          border: 2px solid #D4AF37;
+          background: #142b23;
+          border: 2px solid #c5a059;
           display: flex;
           align-items: center;
           justify-content: center;
           font-family: var(--font-serif);
           font-weight: 700;
-          color: #f0f6fc;
+          color: #ffffff;
           font-size: 1rem;
         }
 
         /* Tarjeta de Sesión */
         .pms-user-session-card {
           margin: 1rem 1rem 0.5rem;
-          background: #141c28;
-          border: 1px solid rgba(212, 175, 55, 0.2);
+          background: #142b23;
+          border: 1px solid rgba(197, 160, 89, 0.25);
           border-radius: 8px;
           padding: 0.85rem 1rem;
           display: flex;
@@ -453,15 +455,15 @@ export function PmsLayout({
           width: 36px;
           height: 36px;
           border-radius: 50%;
-          background: #0d1117;
-          border: 2px solid #D4AF37;
+          background: #0e201a;
+          border: 2px solid #c5a059;
           display: flex;
           align-items: center;
           justify-content: center;
           font-family: var(--font-serif);
           font-weight: 700;
           font-size: 1rem;
-          color: #f0f6fc;
+          color: #ffffff;
           flex-shrink: 0;
         }
 
@@ -474,10 +476,11 @@ export function PmsLayout({
 
         .session-user-name {
           font-size: 0.84rem;
-          color: #f0f6fc;
+          color: #ffffff;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          font-weight: 600;
         }
 
         .session-role-pill {
@@ -521,15 +524,15 @@ export function PmsLayout({
         }
 
         .btn-session-action:hover {
-          background: rgba(212, 175, 55, 0.15);
-          border-color: #D4AF37;
-          color: #f0f6fc;
+          background: rgba(197, 160, 89, 0.2);
+          border-color: #c5a059;
+          color: #ecdcb9;
         }
 
         .btn-session-action.logout:hover {
-          background: rgba(239, 68, 68, 0.15);
+          background: rgba(239, 68, 68, 0.2);
           border-color: #ef4444;
-          color: #f87171;
+          color: #fca5a5;
         }
 
         /* Dropdown cambio rápido de usuario */
@@ -539,11 +542,11 @@ export function PmsLayout({
           left: 0;
           right: 0;
           margin-top: 0.4rem;
-          background: #161b22;
-          border: 1px solid #30363d;
-          border-radius: 8px;
+          background: #ffffff;
+          border: 1px solid rgba(14, 32, 26, 0.12);
+          border-radius: 10px;
           padding: 0.75rem;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+          box-shadow: 0 15px 35px rgba(14, 32, 26, 0.15);
           z-index: 100;
         }
 
@@ -566,24 +569,25 @@ export function PmsLayout({
           display: flex;
           align-items: center;
           gap: 0.6rem;
-          background: #0d1117;
-          border: 1px solid #21262d;
+          background: #faf8f5;
+          border: 1px solid rgba(14, 32, 26, 0.08);
           border-radius: 6px;
           padding: 0.45rem 0.65rem;
-          color: #c9d1d9;
+          color: #0e1c17;
           cursor: pointer;
           text-align: left;
           transition: all 0.2s;
         }
 
         .dropdown-user-btn:hover {
-          border-color: #D4AF37;
-          color: #f0f6fc;
+          border-color: #c5a059;
+          background: #ffffff;
+          color: #0e1c17;
         }
 
         .dropdown-user-btn.current {
-          border-color: #D4AF37;
-          background: rgba(212, 175, 55, 0.08);
+          border-color: #c5a059;
+          background: rgba(197, 160, 89, 0.12);
         }
 
         .dropdown-dot {
@@ -596,12 +600,12 @@ export function PmsLayout({
         .dropdown-user-texts strong {
           display: block;
           font-size: 0.78rem;
-          color: #f0f6fc;
+          color: #0e1c17;
         }
 
         .dropdown-user-texts small {
           font-size: 0.68rem;
-          color: #8b949e;
+          color: #78857f;
         }
 
         .pms-sidebar-nav {
@@ -642,14 +646,14 @@ export function PmsLayout({
         }
 
         .pms-nav-btn:hover {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.08);
           color: #ffffff;
         }
 
         .pms-nav-btn.active {
-          background: rgba(212, 175, 55, 0.12);
-          border-color: rgba(212, 175, 55, 0.35);
-          color: #D4AF37;
+          background: rgba(197, 160, 89, 0.18);
+          border-color: rgba(197, 160, 89, 0.35);
+          color: #ecdcb9;
           font-weight: 600;
         }
 
@@ -665,11 +669,11 @@ export function PmsLayout({
           align-items: center;
           justify-content: center;
           gap: 0.5rem;
-          background: #17202d;
-          border: 1px solid #233042;
+          background: #142b23;
+          border: 1px solid rgba(197, 160, 89, 0.3);
           border-radius: 6px;
           padding: 0.75rem;
-          color: #D4AF37;
+          color: #c5a059;
           font-size: 0.85rem;
           font-weight: 600;
           cursor: pointer;
@@ -686,10 +690,10 @@ export function PmsLayout({
           gap: 0.5rem;
           width: 100%;
           background: transparent;
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           border-radius: 6px;
           padding: 0.65rem 0.85rem;
-          color: #8b949e;
+          color: #c5d2cb;
           font-size: 0.82rem;
           cursor: pointer;
           transition: all 0.2s;
@@ -697,8 +701,21 @@ export function PmsLayout({
 
         .btn-exit-pms:hover {
           color: #ffffff;
-          border-color: rgba(255, 255, 255, 0.3);
-          background: rgba(255, 255, 255, 0.04);
+          border-color: rgba(197, 160, 89, 0.4);
+          background: rgba(255, 255, 255, 0.06);
+        }
+
+        .pms-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+          background: #ffffff;
+          border-bottom: 1px solid rgba(197, 160, 89, 0.22);
+          box-shadow: 0 4px 18px rgba(14, 28, 23, 0.03);
+          position: sticky;
+          top: 0;
+          z-index: 20;
         }
 
         .pms-header-left {
@@ -711,11 +728,11 @@ export function PmsLayout({
           display: none;
           align-items: center;
           gap: 0.45rem;
-          background: #182230;
-          border: 1px solid rgba(212, 175, 55, 0.4);
+          background: #faf8f5;
+          border: 1.5px solid rgba(197, 160, 89, 0.4);
           border-radius: 6px;
           padding: 0.5rem 0.85rem;
-          color: #D4AF37;
+          color: #0e1c17;
           cursor: pointer;
           font-size: 0.82rem;
           font-weight: 600;
@@ -731,43 +748,43 @@ export function PmsLayout({
           display: flex;
           align-items: center;
           gap: 0.65rem;
-          background: #141c28;
-          border: 1px solid #1f2a3a;
+          background: #faf8f5;
+          border: 1px solid rgba(14, 32, 26, 0.08);
           border-radius: 20px;
-          padding: 0.3rem 0.85rem;
+          padding: 0.35rem 0.95rem;
         }
 
         .chip-role-badge {
           font-size: 0.72rem;
-          font-weight: 600;
+          font-weight: 700;
           padding: 0.15rem 0.5rem;
           border-radius: 12px;
         }
 
         .chip-name {
           font-size: 0.84rem;
-          color: #f0f6fc;
-          font-weight: 500;
+          color: #0e1c17;
+          font-weight: 600;
         }
 
         .btn-header-logout {
           display: inline-flex;
           align-items: center;
           gap: 0.45rem;
-          background: transparent;
-          border: 1px solid #1f2a3a;
+          background: #faf8f5;
+          border: 1px solid rgba(14, 32, 26, 0.1);
           border-radius: 6px;
           padding: 0.45rem 0.85rem;
           font-size: 0.82rem;
-          color: #8b949e;
+          color: #5a6b63;
           cursor: pointer;
           transition: all 0.2s;
         }
 
         .btn-header-logout:hover {
-          color: #f87171;
-          border-color: rgba(248, 113, 113, 0.4);
-          background: rgba(239, 68, 68, 0.08);
+          color: #dc2626;
+          border-color: rgba(220, 38, 38, 0.3);
+          background: #fef2f2;
         }
 
         /* Pantalla de Acceso Restringido */
@@ -780,9 +797,9 @@ export function PmsLayout({
         }
 
         .restricted-card {
-          background: #141c28;
-          border: 1px solid rgba(212, 175, 55, 0.3);
-          border-radius: 12px;
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.35);
+          border-radius: 14px;
           padding: 3rem 2.5rem;
           max-width: 520px;
           text-align: center;
@@ -790,15 +807,15 @@ export function PmsLayout({
           flex-direction: column;
           align-items: center;
           gap: 1.25rem;
-          box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+          box-shadow: 0 15px 40px rgba(14, 32, 26, 0.06);
         }
 
         .restricted-icon-box {
           width: 72px;
           height: 72px;
           border-radius: 50%;
-          background: rgba(212, 175, 55, 0.1);
-          border: 1px solid rgba(212, 175, 55, 0.3);
+          background: #faf8f5;
+          border: 1px solid rgba(197, 160, 89, 0.3);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -806,22 +823,24 @@ export function PmsLayout({
 
         .restricted-card h3 {
           font-family: var(--font-serif);
-          font-size: 1.6rem;
-          color: #f0f6fc;
+          font-size: 1.65rem;
+          color: #0e1c17;
         }
 
         .restricted-card p {
-          color: #8b949e;
+          color: #5a6b63;
           font-size: 0.95rem;
-          line-height: 1.5;
+          line-height: 1.6;
         }
 
         .restricted-hint {
-          background: #0d1117;
-          border: 1px solid #1f2a3a;
+          background: #faf8f5;
+          border: 1px solid rgba(14, 32, 26, 0.08);
           border-radius: 6px;
           padding: 0.75rem 1rem;
-          font-size: 0.8rem;
+          font-size: 0.82rem;
+          color: #0e1c17;
+        }-size: 0.8rem;
           color: #c9d1d9;
         }
 

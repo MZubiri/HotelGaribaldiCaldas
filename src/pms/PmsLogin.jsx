@@ -211,20 +211,35 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           align-items: center;
           justify-content: center;
           padding: 2.5rem 1.5rem;
-          background: radial-gradient(circle at 50% 20%, #1e2633 0%, #0d1117 100%);
-          font-family: inherit;
+          background: 
+            radial-gradient(circle at 50% 25%, rgba(197, 160, 89, 0.15) 0%, transparent 60%),
+            linear-gradient(135deg, #0e201a 0%, #163229 50%, #0a1813 100%);
+          font-family: var(--font-sans);
+          position: relative;
+        }
+
+        .pms-login-backdrop::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px);
+          background-size: 24px 24px;
+          pointer-events: none;
         }
 
         .pms-login-container {
           width: 100%;
           max-width: 580px;
-          background: rgba(22, 27, 34, 0.95);
-          backdrop-filter: blur(16px);
-          border: 1px solid rgba(212, 175, 55, 0.25);
-          border-radius: 12px;
-          padding: 2.5rem 2.25rem;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 40px rgba(212, 175, 55, 0.05);
-          color: #e6edf3;
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.4);
+          border-radius: 16px;
+          padding: 2.75rem 2.5rem;
+          box-shadow: 
+            0 25px 60px rgba(14, 32, 26, 0.25), 
+            0 0 35px rgba(197, 160, 89, 0.12);
+          color: #0e1c17;
+          position: relative;
+          z-index: 1;
         }
 
         .pms-login-header {
@@ -233,58 +248,61 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
         }
 
         .login-brand-emblem {
-          width: 54px;
-          height: 54px;
-          margin: 0 auto 1rem;
+          width: 58px;
+          height: 58px;
+          margin: 0 auto 1.15rem;
           border-radius: 50%;
-          background: linear-gradient(135deg, #2a2010 0%, #17130b 100%);
-          border: 1.5px solid #D4AF37;
-          color: #D4AF37;
+          background: #0e201a;
+          border: 2px solid #c5a059;
+          color: #c5a059;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: 'Playfair Display', serif;
-          font-size: 1.4rem;
+          font-family: var(--font-serif);
+          font-size: 1.55rem;
           font-weight: 700;
-          box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+          box-shadow: 0 6px 20px rgba(14, 32, 26, 0.15);
         }
 
         .login-title {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.85rem;
-          color: #f0f6fc;
+          font-family: var(--font-serif);
+          font-size: 2.15rem;
+          color: #0e1c17;
           margin-bottom: 0.35rem;
-          letter-spacing: 0.5px;
+          letter-spacing: -0.01em;
+          font-weight: 600;
         }
 
         .login-subtitle {
           display: block;
           font-size: 0.95rem;
-          color: #8b949e;
-          margin-bottom: 0.85rem;
+          color: #5a6b63;
+          margin-bottom: 0.95rem;
+          font-weight: 400;
         }
 
         .login-location-pill {
           display: inline-flex;
           align-items: center;
           gap: 0.45rem;
-          background: rgba(212, 175, 55, 0.08);
-          border: 1px solid rgba(212, 175, 55, 0.2);
+          background: #faf8f5;
+          border: 1px solid rgba(197, 160, 89, 0.35);
           border-radius: 20px;
-          padding: 0.3rem 0.9rem;
-          font-size: 0.78rem;
-          color: #c9d1d9;
+          padding: 0.35rem 1rem;
+          font-size: 0.8rem;
+          color: #404b46;
+          font-weight: 500;
         }
 
         .login-error-alert {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          background: rgba(239, 68, 68, 0.12);
-          border: 1px solid rgba(239, 68, 68, 0.3);
+          background: #fef2f2;
+          border: 1px solid #fecaca;
           border-radius: 8px;
           padding: 0.85rem 1.15rem;
-          color: #f87171;
+          color: #dc2626;
           font-size: 0.88rem;
           margin-bottom: 1.5rem;
         }
@@ -305,10 +323,11 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           display: flex;
           align-items: center;
           gap: 0.45rem;
-          font-size: 0.84rem;
-          font-weight: 500;
-          color: #c9d1d9;
-          letter-spacing: 0.2px;
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: #0e1c17;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
         }
 
         .login-input-wrapper {
@@ -319,19 +338,25 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
 
         .login-input {
           width: 100%;
-          background: #0d1117;
-          border: 1px solid #30363d;
+          background: #faf8f5;
+          border: 1.5px solid rgba(14, 32, 26, 0.14);
           border-radius: 8px;
           padding: 0.85rem 1rem;
           font-size: 0.95rem;
-          color: #f0f6fc;
+          color: #0e1c17;
+          font-family: var(--font-sans);
           transition: all 0.2s ease;
+        }
+
+        .login-input::placeholder {
+          color: #8a9992;
         }
 
         .login-input:focus {
           outline: none;
-          border-color: #D4AF37;
-          box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+          background: #ffffff;
+          border-color: #c5a059;
+          box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
         }
 
         .btn-toggle-eye {
@@ -339,7 +364,7 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           right: 0.85rem;
           background: transparent;
           border: none;
-          color: #8b949e;
+          color: #78857f;
           cursor: pointer;
           padding: 0.25rem;
           display: flex;
@@ -349,7 +374,7 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
         }
 
         .btn-toggle-eye:hover {
-          color: #D4AF37;
+          color: #0e1c17;
         }
 
         .login-options-row {
@@ -357,7 +382,7 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           justify-content: space-between;
           align-items: center;
           font-size: 0.82rem;
-          color: #8b949e;
+          color: #5a6b63;
         }
 
         .remember-checkbox-label {
@@ -365,17 +390,20 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           align-items: center;
           gap: 0.5rem;
           cursor: pointer;
+          color: #404b46;
+          font-weight: 500;
         }
 
         .remember-checkbox-label input {
-          accent-color: #D4AF37;
+          accent-color: #0e201a;
           width: 16px;
           height: 16px;
         }
 
         .login-hint-rnt {
-          color: #6e7681;
-          font-size: 0.76rem;
+          color: #78857f;
+          font-size: 0.78rem;
+          font-weight: 600;
           letter-spacing: 0.5px;
         }
 
@@ -385,21 +413,23 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           justify-content: center;
           gap: 0.65rem;
           width: 100%;
-          background: linear-gradient(135deg, #D4AF37 0%, #aa8524 100%);
-          border: none;
+          background: #0e201a;
+          border: 1px solid #c5a059;
           border-radius: 8px;
           padding: 0.95rem 1.5rem;
           font-size: 0.98rem;
           font-weight: 600;
-          color: #0d1117;
+          color: #ffffff;
           cursor: pointer;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-          letter-spacing: 0.3px;
+          transition: all 0.25s ease;
+          letter-spacing: 0.02em;
+          box-shadow: 0 4px 15px rgba(14, 32, 26, 0.15);
         }
 
         .btn-login-submit:hover:not(:disabled) {
+          background: #18372d;
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+          box-shadow: 0 8px 25px rgba(14, 32, 26, 0.25);
         }
 
         .btn-login-submit:disabled {
@@ -410,22 +440,37 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
         /* Roles Rápidos Demo */
         .login-quick-roles-section {
           margin-top: 2rem;
-          padding-top: 1.5rem;
-          border-top: 1px solid #30363d;
+          padding-top: 1.75rem;
+          border-top: 1px solid rgba(14, 32, 26, 0.08);
         }
 
         .quick-roles-divider {
           text-align: center;
           margin-bottom: 1.25rem;
+          position: relative;
+        }
+
+        .quick-roles-divider::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 50%;
+          height: 1px;
+          background: rgba(14, 32, 26, 0.08);
+          z-index: 0;
         }
 
         .quick-roles-divider span {
-          font-size: 0.78rem;
+          position: relative;
+          z-index: 1;
+          font-size: 0.76rem;
           text-transform: uppercase;
-          letter-spacing: 0.8px;
-          color: #8b949e;
-          background: #161b22;
+          letter-spacing: 0.08em;
+          color: #78857f;
+          background: #ffffff;
           padding: 0 0.85rem;
+          font-weight: 600;
         }
 
         .quick-roles-grid {
@@ -438,10 +483,10 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          background: #0d1117;
-          border: 1px solid #30363d;
-          border-radius: 8px;
-          padding: 0.75rem 0.85rem;
+          background: #faf8f5;
+          border: 1.5px solid rgba(14, 32, 26, 0.08);
+          border-radius: 10px;
+          padding: 0.85rem 0.95rem;
           text-align: left;
           cursor: pointer;
           transition: all 0.2s ease;
@@ -449,25 +494,26 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
         }
 
         .quick-role-card:hover {
-          border-color: #D4AF37;
-          background: #161b22;
+          border-color: #c5a059;
+          background: #ffffff;
           transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+          box-shadow: 0 8px 20px rgba(14, 32, 26, 0.08);
         }
 
         .quick-role-avatar {
-          width: 36px;
-          height: 36px;
+          width: 38px;
+          height: 38px;
           border-radius: 50%;
-          background: #21262d;
-          border: 2px solid #D4AF37;
+          background: #0e201a;
+          border: 2px solid #c5a059;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: 700;
           font-size: 0.95rem;
-          color: #f0f6fc;
+          color: #ffffff;
           flex-shrink: 0;
+          font-family: var(--font-serif);
         }
 
         .quick-role-info {
@@ -478,8 +524,8 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
         }
 
         .quick-role-info strong {
-          font-size: 0.82rem;
-          color: #f0f6fc;
+          font-size: 0.86rem;
+          color: #0e1c17;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -487,16 +533,17 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
 
         .quick-role-badge {
           display: inline-block;
-          font-size: 0.68rem;
-          font-weight: 600;
-          padding: 0.1rem 0.45rem;
+          font-size: 0.7rem;
+          font-weight: 700;
+          padding: 0.15rem 0.5rem;
           border-radius: 10px;
           width: fit-content;
+          letter-spacing: 0.02em;
         }
 
         .quick-role-info small {
-          font-size: 0.7rem;
-          color: #6e7681;
+          font-size: 0.72rem;
+          color: #78857f;
         }
 
         .pms-login-footer {
@@ -510,19 +557,20 @@ export function PmsLogin({ onLogin, onCancel, staffUsers = INITIAL_STAFF_USERS, 
           gap: 0.5rem;
           background: transparent;
           border: none;
-          color: #8b949e;
-          font-size: 0.86rem;
+          color: #5a6b63;
+          font-size: 0.88rem;
+          font-weight: 500;
           cursor: pointer;
           transition: color 0.2s;
         }
 
         .btn-cancel-login:hover {
-          color: #f0f6fc;
+          color: #0e1c17;
         }
 
         @media (max-width: 600px) {
           .pms-login-container {
-            padding: 1.75rem 1.25rem;
+            padding: 2rem 1.25rem;
           }
           .quick-roles-grid {
             grid-template-columns: 1fr;

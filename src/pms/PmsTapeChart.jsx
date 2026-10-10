@@ -171,11 +171,13 @@ export function PmsTapeChart({ rooms, reservations, onSelectReservation }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #121822;
-          padding: 1rem 1.5rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          background: #ffffff;
+          padding: 1.25rem 1.75rem;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
+          gap: 1rem;
+          flex-wrap: wrap;
         }
         .tape-nav-group {
           display: flex;
@@ -186,63 +188,84 @@ export function PmsTapeChart({ rooms, reservations, onSelectReservation }) {
           display: flex;
           align-items: center;
           gap: 0.35rem;
-          padding: 0.45rem 0.85rem;
-          border: 1px solid #233042;
-          background: #16202d;
+          padding: 0.5rem 0.95rem;
+          border: 1.5px solid #d9d2c5;
+          background: #faf8f5;
           font-size: 0.82rem;
           font-weight: 600;
-          color: #e6edf3;
-          border-radius: 6px;
+          color: #0e201a;
+          border-radius: 8px;
           transition: all 0.2s;
+          cursor: pointer;
         }
         .tape-nav-btn:hover {
-          background: #1f2a3a;
-          border-color: #D4AF37;
-          color: #D4AF37;
+          background: #ffffff;
+          border-color: #c5a059;
+          color: #8a6d2b;
         }
         .tape-current-period {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.15rem;
-          color: #f0f6fc;
-          font-weight: 600;
+          font-family: var(--font-serif);
+          font-size: 1.25rem;
+          color: #0e201a;
+          font-weight: 700;
         }
         .tape-today-btn {
-          padding: 0.45rem 0.85rem;
-          background: #D4AF37;
-          color: #0b0f15;
-          border-radius: 6px;
+          padding: 0.5rem 1rem;
+          background: #0e201a;
+          color: #ffffff;
+          border-radius: 8px;
           font-size: 0.8rem;
           font-weight: 700;
-          border: none;
+          border: 1px solid #c5a059;
           cursor: pointer;
+          transition: all 0.2s;
+        }
+        .tape-today-btn:hover {
+          background: #18372d;
         }
 
         .tape-filter-group {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: #8b96a5;
+          gap: 0.65rem;
+          font-size: 0.84rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #0e201a;
         }
         .tape-filter-group select {
-          padding: 0.45rem 0.85rem;
-          border: 1px solid #233042;
-          border-radius: 6px;
+          padding: 0.6rem 2.25rem 0.6rem 0.95rem;
+          border: 1.5px solid #d9d2c5;
+          border-radius: 8px;
           outline: none;
-          background: #0d121a;
-          color: #f0f6fc;
+          background-color: #faf8f5;
+          color: #0e201a;
+          font-family: var(--font-sans);
+          font-size: 0.88rem;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230e201a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 0.75rem center;
+          background-size: 14px;
+          cursor: pointer;
+        }
+        .tape-filter-group select:focus {
+          border-color: #c5a059;
+          background-color: #ffffff;
+          box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
         }
 
         /* Table */
         .tape-chart-wrapper {
-          border-radius: 10px;
-          border: 1px solid #1f2a3a;
-          background: #121822;
+          border-radius: 12px;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          background: #ffffff;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
         }
         .header-cell {
-          background: #16202d !important;
-          color: #8b96a5 !important;
+          background: #faf8f5 !important;
+          color: #5a6b63 !important;
         }
         .room-cell-content {
           display: flex;
@@ -251,38 +274,39 @@ export function PmsTapeChart({ rooms, reservations, onSelectReservation }) {
         .room-num-text {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #D4AF37;
+          color: #0e201a;
         }
         .room-sub-type {
-          font-size: 0.72rem;
-          color: #8b96a5;
+          font-size: 0.74rem;
+          color: #5a6b63;
           font-weight: 500;
         }
 
         .tape-date-th {
           min-width: 65px;
-          padding: 0.5rem 0.25rem !important;
+          padding: 0.65rem 0.25rem !important;
         }
         .tape-date-th.today-highlight {
-          background: rgba(212, 175, 55, 0.2) !important;
-          color: #D4AF37 !important;
+          background: #fdfbf7 !important;
+          color: #8a6d2b !important;
+          border-bottom: 2px solid #c5a059 !important;
         }
         .day-name {
           display: block;
           font-size: 0.7rem;
-          color: #8b96a5;
+          color: #78857f;
           text-transform: uppercase;
         }
         .day-number {
           display: block;
-          font-size: 1.1rem;
+          font-size: 1.15rem;
           font-weight: 800;
-          font-family: 'Playfair Display', serif;
-          color: #f0f6fc;
+          font-family: var(--font-serif);
+          color: #0e201a;
         }
 
         .today-col {
-          background-color: rgba(212, 175, 55, 0.08) !important;
+          background-color: rgba(197, 160, 89, 0.06) !important;
         }
 
         .booking-bar-guest {
@@ -300,12 +324,13 @@ export function PmsTapeChart({ rooms, reservations, onSelectReservation }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #121822;
-          padding: 0.9rem 1.5rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          font-size: 0.82rem;
-          color: #8b96a5;
+          background: #ffffff;
+          padding: 1rem 1.75rem;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          font-size: 0.84rem;
+          color: #5a6b63;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
         }
         .legend-pills-row {
           display: flex;
@@ -315,7 +340,8 @@ export function PmsTapeChart({ rooms, reservations, onSelectReservation }) {
           display: flex;
           align-items: center;
           gap: 0.45rem;
-          color: #c9d1d9;
+          color: #0e201a;
+          font-weight: 500;
         }
         .box-sample {
           width: 14px;
@@ -323,14 +349,14 @@ export function PmsTapeChart({ rooms, reservations, onSelectReservation }) {
           border-radius: 3px;
           display: inline-block;
         }
-        .box-sample.booked { background: #2563eb; }
-        .box-sample.today-col { background: rgba(212, 175, 55, 0.4); border: 1px solid #D4AF37; }
-        .box-sample.white { background: #0d121a; border: 1px solid #233042; }
+        .box-sample.booked { background: #1d4ed8; }
+        .box-sample.today-col { background: rgba(197, 160, 89, 0.4); border: 1px solid #c5a059; }
+        .box-sample.white { background: #ffffff; border: 1px solid #d9d2c5; }
         .legend-hint {
           display: flex;
           align-items: center;
           gap: 0.4rem;
-          color: #8b96a5;
+          color: #5a6b63;
         }
 
         @media (max-width: 768px) {

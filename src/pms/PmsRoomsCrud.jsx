@@ -319,27 +319,29 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #121822;
+          background: #ffffff;
           padding: 1.5rem 2rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
         }
         .crud-header-bar h3 {
-          font-size: 1.4rem;
-          color: #f0f6fc;
-          margin-bottom: 0.2rem;
+          font-size: 1.45rem;
+          color: #0e201a;
+          font-family: var(--font-serif);
+          font-weight: 700;
+          margin-bottom: 0.25rem;
         }
         .crud-header-bar p {
-          font-size: 0.85rem;
-          color: #8b96a5;
+          font-size: 0.86rem;
+          color: #5a6b63;
         }
 
         .crud-table-card {
-          background: #121822;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
           overflow-x: auto;
         }
         .pms-data-table {
@@ -349,37 +351,42 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
           font-size: 0.88rem;
         }
         .pms-data-table th {
-          background: #16202d;
+          background: #faf8f5;
           padding: 1rem 1.25rem;
-          font-size: 0.76rem;
-          letter-spacing: 0.05em;
+          font-size: 0.74rem;
+          letter-spacing: 0.06em;
           text-transform: uppercase;
-          color: #8b96a5;
-          border-bottom: 1px solid #223042;
+          color: #5a6b63;
+          font-weight: 700;
+          border-bottom: 1.5px solid #ece6db;
         }
         .pms-data-table td {
           padding: 1rem 1.25rem;
-          border-bottom: 1px solid #1a2432;
-          color: #c9d1d9;
+          border-bottom: 1px solid #f4f0e8;
+          color: #0e201a;
+        }
+        .pms-data-table tr:hover td {
+          background-color: #fdfbf7;
         }
 
         .room-badge-num {
-          background: #16202d;
-          padding: 0.3rem 0.6rem;
-          border-radius: 4px;
-          color: #D4AF37;
-          border: 1px solid #233042;
-          font-weight: 700;
+          background: #faf8f5;
+          padding: 0.3rem 0.65rem;
+          border-radius: 6px;
+          color: #8a6d2b;
+          border: 1px solid #e0d8c8;
+          font-weight: 800;
           font-size: 0.95rem;
         }
         .room-type-cell strong {
           display: block;
-          color: #f0f6fc;
+          color: #0e201a;
+          font-weight: 600;
         }
         .room-type-cell span {
           display: block;
-          font-size: 0.75rem;
-          color: #8b96a5;
+          font-size: 0.78rem;
+          color: #5a6b63;
         }
 
         .status-pill {
@@ -387,12 +394,12 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
           font-size: 0.75rem;
           font-weight: 700;
           padding: 0.25rem 0.65rem;
-          border-radius: 4px;
+          border-radius: 6px;
         }
-        .status-pill.available { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
-        .status-pill.occupied { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
-        .status-pill.cleaning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
-        .status-pill.maintenance { background: rgba(107, 114, 128, 0.18); color: #9ca3af; border: 1px solid rgba(107, 114, 128, 0.35); }
+        .status-pill.available { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .status-pill.occupied { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+        .status-pill.cleaning { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+        .status-pill.maintenance { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
 
         .cleaning-pill {
           display: inline-block;
@@ -401,20 +408,21 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
           padding: 0.2rem 0.5rem;
           border-radius: 4px;
         }
-        .cleaning-pill.inspected { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-        .cleaning-pill.clean { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
-        .cleaning-pill.in_progress { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-        .cleaning-pill.dirty { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+        .cleaning-pill.inspected { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .cleaning-pill.clean { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+        .cleaning-pill.in_progress { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+        .cleaning-pill.dirty { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
 
         .guest-assigned-cell strong {
           display: block;
           font-size: 0.88rem;
-          color: #f0f6fc;
+          color: #0e201a;
+          font-weight: 600;
         }
         .guest-assigned-cell span {
           display: block;
-          font-size: 0.72rem;
-          color: #8b96a5;
+          font-size: 0.74rem;
+          color: #5a6b63;
         }
 
         .crud-actions-group {
@@ -428,15 +436,16 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 1px solid #233042;
-          background: #16202d;
-          color: #c9d1d9;
-          transition: all var(--transition-smooth);
+          border: 1px solid #d9d2c5;
+          background: #faf8f5;
+          color: #5a6b63;
+          transition: all 0.2s ease;
+          cursor: pointer;
         }
         .btn-action-icon.edit:hover {
-          background: #D4AF37;
-          color: #0b0f15;
-          border-color: #D4AF37;
+          background: #0e201a;
+          color: #ffffff;
+          border-color: #0e201a;
         }
         .btn-action-icon.delete:hover {
           background: #dc2626;
@@ -447,30 +456,35 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
         /* Modal CRUD */
         .crud-modal-box {
           max-width: 600px;
-          padding: 2.5rem;
-          background: #161b22;
-          border: 1px solid #30363d;
-          border-radius: 10px;
-          color: #f0f6fc;
+          width: 90%;
+          padding: 2.25rem 2.5rem;
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.35);
+          border-radius: 14px;
+          color: #0e201a;
+          box-shadow: 0 25px 60px rgba(14, 28, 23, 0.25);
         }
         .crud-modal-header {
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid #223042;
+          border-bottom: 1px solid #f0ebe1;
         }
         .crud-modal-header h3 {
-          font-size: 1.6rem;
-          color: #f0f6fc;
-          font-family: 'Playfair Display', serif;
+          font-size: 1.5rem;
+          color: #0e201a;
+          font-family: var(--font-serif);
+          font-weight: 700;
+          margin: 0 0 0.25rem 0;
         }
         .crud-modal-header p {
-          font-size: 0.85rem;
-          color: #8b96a5;
+          font-size: 0.86rem;
+          color: #5a6b63;
+          margin: 0;
         }
         .crud-modal-form {
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1.15rem;
         }
         .form-grid-2 {
           display: grid;
@@ -483,36 +497,49 @@ export function PmsRoomsCrud({ rooms, onSaveRoom, onDeleteRoom, onUpdateStatus, 
           gap: 0.35rem;
         }
         .form-group label {
-          font-size: 0.75rem;
+          font-size: 0.76rem;
           font-weight: 700;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.06em;
           text-transform: uppercase;
-          color: #c9d1d9;
+          color: #0e201a;
         }
         .form-group input, .form-group select, .form-group textarea {
-          padding: 0.65rem 0.85rem;
-          border: 1px solid #233042;
-          background: #0d121a;
-          color: #f0f6fc;
+          padding: 0.7rem 1rem;
+          border: 1.5px solid #d9d2c5;
+          background: #faf8f5;
+          color: #0e201a;
           font-family: var(--font-sans);
-          font-size: 0.9rem;
+          font-size: 0.92rem;
           outline: none;
-          border-radius: 6px;
+          border-radius: 8px;
+          transition: all 0.2s;
+        }
+        .form-group select {
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230e201a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 1rem center;
+          background-size: 15px;
+          padding-right: 2.5rem;
+          cursor: pointer;
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-          border-color: #D4AF37;
-          background: #0d121a;
+          border-color: #c5a059;
+          background: #ffffff;
+          box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
         }
         .modal-actions-row {
           display: flex;
           justify-content: flex-end;
           gap: 1rem;
           margin-top: 1.5rem;
+          padding-top: 1rem;
+          border-top: 1px solid #f0ebe1;
         }
 
         @media (max-width: 600px) {
           .crud-modal-box {
-            padding: 1.5rem 1rem;
+            padding: 1.5rem 1.25rem;
           }
           .form-grid-2 {
             grid-template-columns: 1fr;

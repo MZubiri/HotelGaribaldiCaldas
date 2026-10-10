@@ -350,31 +350,41 @@ export function PmsReservations({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background: #121822;
+          background: #ffffff;
           padding: 1.25rem 1.75rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
           gap: 1rem;
           flex-wrap: wrap;
         }
         .search-box-wrap {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          background: #0d121a;
-          border: 1px solid #233042;
-          padding: 0.55rem 0.95rem;
-          border-radius: 6px;
+          gap: 0.65rem;
+          background: #faf8f5;
+          border: 1.5px solid #d9d2c5;
+          padding: 0.65rem 1rem;
+          border-radius: 8px;
           min-width: 320px;
+          transition: all 0.2s;
+        }
+        .search-box-wrap:focus-within {
+          background: #ffffff;
+          border-color: #c5a059;
+          box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
         }
         .search-box-wrap input {
           border: none;
           background: transparent;
           outline: none;
           width: 100%;
-          font-size: 0.88rem;
-          color: #f0f6fc;
+          font-size: 0.92rem;
+          color: #0e201a;
+          font-family: var(--font-sans);
+        }
+        .search-box-wrap input::placeholder {
+          color: #78857f;
         }
 
         .res-filter-tabs {
@@ -382,62 +392,65 @@ export function PmsReservations({
           gap: 0.5rem;
         }
         .tab-btn {
-          font-size: 0.8rem;
+          font-size: 0.82rem;
           font-weight: 600;
-          padding: 0.45rem 0.85rem;
-          border-radius: 6px;
-          border: 1px solid #233042;
-          background: #16202d;
-          color: #8b96a5;
-          transition: all var(--transition-smooth);
+          padding: 0.5rem 0.95rem;
+          border-radius: 8px;
+          border: 1.5px solid #d9d2c5;
+          background: #faf8f5;
+          color: #5a6b63;
+          transition: all 0.2s ease;
+          cursor: pointer;
         }
         .tab-btn:hover {
-          color: #f0f6fc;
-          border-color: #D4AF37;
+          color: #0e201a;
+          border-color: #c5a059;
+          background: #ffffff;
         }
         .tab-btn.active {
-          background: #D4AF37;
-          color: #0b0f15;
+          background: #0e201a;
+          color: #ffffff;
           font-weight: 700;
-          border-color: #D4AF37;
+          border-color: #0e201a;
         }
 
         .res-table-card {
-          background: #121822;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
           overflow-x: auto;
         }
         .code-badge {
-          background: #16202d;
-          padding: 0.25rem 0.5rem;
-          border-radius: 4px;
-          border: 1px solid #233042;
-          color: #D4AF37;
+          background: #faf8f5;
+          padding: 0.25rem 0.6rem;
+          border-radius: 6px;
+          border: 1px solid #e0d8c8;
+          color: #8a6d2b;
           font-weight: 700;
           font-size: 0.82rem;
         }
         .guest-info-cell strong {
           display: block;
-          color: #f0f6fc;
+          color: #0e201a;
+          font-weight: 600;
         }
         .guest-info-cell span {
           display: block;
-          font-size: 0.75rem;
-          color: #8b96a5;
+          font-size: 0.78rem;
+          color: #5a6b63;
         }
         .room-res-tag {
           font-weight: 700;
-          color: #D4AF37;
+          color: #8a6d2b;
         }
         .dates-res-cell span {
           display: block;
           font-weight: 600;
-          color: #e6edf3;
+          color: #0e201a;
         }
         .dates-res-cell small {
-          color: #8b96a5;
+          color: #5a6b63;
         }
 
         .front-desk-actions {
@@ -448,14 +461,18 @@ export function PmsReservations({
           display: inline-flex;
           align-items: center;
           gap: 0.35rem;
-          background: #15803d;
+          background: #065f46;
           color: #ffffff;
-          padding: 0.4rem 0.8rem;
+          padding: 0.45rem 0.85rem;
           border-radius: 6px;
-          font-size: 0.78rem;
-          font-weight: 700;
+          font-size: 0.8rem;
+          font-weight: 600;
           border: none;
           cursor: pointer;
+          transition: all 0.2s;
+        }
+        .btn-front-checkin:hover {
+          background: #047857;
         }
         .btn-front-checkout {
           display: inline-flex;
@@ -463,50 +480,60 @@ export function PmsReservations({
           gap: 0.35rem;
           background: #b45309;
           color: #ffffff;
-          padding: 0.4rem 0.8rem;
+          padding: 0.45rem 0.85rem;
           border-radius: 6px;
-          font-size: 0.78rem;
-          font-weight: 700;
+          font-size: 0.8rem;
+          font-weight: 600;
           border: none;
           cursor: pointer;
+          transition: all 0.2s;
+        }
+        .btn-front-checkout:hover {
+          background: #d97706;
         }
 
         /* Walk-in Modal */
         .walkin-modal-box {
           max-width: 600px;
-          padding: 2.5rem;
-          background: #161b22;
-          border: 1px solid #30363d;
-          border-radius: 10px;
-          color: #f0f6fc;
+          width: 90%;
+          padding: 2.25rem 2.5rem;
+          background: #ffffff;
+          border: 1px solid rgba(197, 160, 89, 0.35);
+          border-radius: 14px;
+          color: #0e201a;
+          box-shadow: 0 25px 60px rgba(14, 28, 23, 0.25);
         }
         .walkin-header {
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid #223042;
+          border-bottom: 1px solid #f0ebe1;
         }
         .walkin-header h3 {
-          font-size: 1.5rem;
-          color: #f0f6fc;
-          font-family: 'Playfair Display', serif;
+          font-size: 1.45rem;
+          color: #0e201a;
+          font-family: var(--font-serif);
+          font-weight: 700;
+          margin: 0 0 0.25rem 0;
         }
         .walkin-header p {
-          font-size: 0.85rem;
-          color: #8b96a5;
+          font-size: 0.86rem;
+          color: #5a6b63;
+          margin: 0;
         }
         .walkin-form {
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1.15rem;
         }
         .readonly-input {
-          background: #16202d !important;
-          color: #D4AF37 !important;
-          border: 1px solid #233042 !important;
+          background: #f2eee6 !important;
+          color: #0e201a !important;
+          border: 1.5px solid #ded6c8 !important;
+          font-weight: 800 !important;
         }
 
         @media (max-width: 768px) {
-          .pms-toolbar-card {
+          .res-toolbar-bar {
             flex-direction: column;
             gap: 1rem;
             align-items: stretch;
@@ -516,14 +543,14 @@ export function PmsReservations({
             flex-wrap: wrap;
           }
           .tab-btn {
-            padding: 0.35rem 0.65rem;
-            font-size: 0.75rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.78rem;
           }
         }
 
         @media (max-width: 600px) {
           .walkin-modal-box {
-            padding: 1.5rem 1rem;
+            padding: 1.5rem 1.25rem;
           }
           .front-desk-actions {
             flex-direction: column;

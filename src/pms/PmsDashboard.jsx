@@ -189,18 +189,19 @@ export function PmsDashboard({
           gap: 1.5rem;
         }
         .kpi-metric-card {
-          background: #121822;
+          background: #ffffff;
           padding: 1.75rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(14, 32, 26, 0.08);
+          border-radius: 12px;
+          box-shadow: 0 8px 24px rgba(14, 32, 26, 0.04);
           display: flex;
           flex-direction: column;
-          transition: transform 0.2s, border-color 0.2s;
+          transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
         .kpi-metric-card:hover {
           transform: translateY(-2px);
-          border-color: rgba(212, 175, 55, 0.4);
+          border-color: rgba(197, 160, 89, 0.4);
+          box-shadow: 0 12px 30px rgba(14, 32, 26, 0.08);
         }
         .kpi-head {
           display: flex;
@@ -209,22 +210,23 @@ export function PmsDashboard({
           margin-bottom: 0.75rem;
         }
         .kpi-title {
-          font-size: 0.78rem;
+          font-size: 0.76rem;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #8b96a5;
+          color: #78857f;
           font-weight: 700;
         }
         .kpi-value {
           font-size: 2.2rem;
           font-weight: 800;
-          color: #f0f6fc;
+          color: #0e1c17;
           line-height: 1.1;
           margin-bottom: 0.5rem;
+          font-family: var(--font-sans);
         }
         .kpi-foot {
           font-size: 0.82rem;
-          color: #8b96a5;
+          color: #78857f;
         }
 
         .pms-operations-grid {
@@ -233,11 +235,11 @@ export function PmsDashboard({
           gap: 2rem;
         }
         .pms-card-box {
-          background: #121822;
+          background: #ffffff;
           padding: 2rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+          border: 1px solid rgba(14, 32, 26, 0.08);
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(14, 32, 26, 0.05);
         }
         .box-header {
           display: flex;
@@ -245,20 +247,21 @@ export function PmsDashboard({
           align-items: center;
           margin-bottom: 1.75rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid #1f2a3a;
+          border-bottom: 1px solid rgba(14, 32, 26, 0.08);
         }
         .box-header h3 {
-          font-size: 1.25rem;
-          color: #f0f6fc;
+          font-size: 1.35rem;
+          color: #0e1c17;
           font-weight: 600;
+          font-family: var(--font-serif);
         }
         .badge-pms {
           font-size: 0.75rem;
           font-weight: 700;
           padding: 0.25rem 0.65rem;
-          background: #16202d;
-          color: #D4AF37;
-          border: 1px solid #233042;
+          background: #faf8f5;
+          color: #9e7933;
+          border: 1px solid rgba(197, 160, 89, 0.3);
           border-radius: 4px;
         }
 
@@ -271,19 +274,20 @@ export function PmsDashboard({
           display: flex;
           align-items: flex-start;
           gap: 0.85rem;
-          padding: 1.1rem;
-          background: #16202d;
-          border: 1px solid #233042;
-          border-radius: 8px;
+          padding: 1.15rem;
+          background: #faf8f5;
+          border: 1px solid rgba(14, 32, 26, 0.06);
+          border-radius: 10px;
         }
         .movement-cell strong {
           display: block;
           font-size: 0.95rem;
-          color: #f0f6fc;
+          color: #0e1c17;
+          margin-bottom: 0.2rem;
         }
         .movement-cell p {
-          font-size: 0.8rem;
-          color: #8b96a5;
+          font-size: 0.82rem;
+          color: #78857f;
         }
 
         .quick-actions-bar {
@@ -308,10 +312,10 @@ export function PmsDashboard({
         .mini-room-pill:hover {
           transform: translateY(-2px);
         }
-        .mini-room-pill.available { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; }
-        .mini-room-pill.occupied { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.35); color: #60a5fa; }
-        .mini-room-pill.cleaning { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); color: #fbbf24; }
-        .mini-room-pill.maintenance { background: rgba(107, 114, 128, 0.18); border: 1px solid rgba(107, 114, 128, 0.35); color: #9ca3af; }
+        .mini-room-pill.available { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
+        .mini-room-pill.occupied { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+        .mini-room-pill.cleaning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+        .mini-room-pill.maintenance { background: #f3f4f6; border: 1px solid #e5e7eb; color: #4b5563; }
 
         .pill-num {
           display: block;
@@ -329,9 +333,9 @@ export function PmsDashboard({
           flex-wrap: wrap;
           gap: 1rem;
           font-size: 0.8rem;
-          color: #8b96a5;
+          color: #78857f;
           padding-top: 1rem;
-          border-top: 1px solid #1f2a3a;
+          border-top: 1px solid rgba(14, 32, 26, 0.08);
         }
         .legend-item {
           display: flex;
@@ -343,13 +347,13 @@ export function PmsDashboard({
           height: 8px;
           border-radius: 50%;
         }
-        .dot-avail { background: #34d399; }
-        .dot-occ { background: #60a5fa; }
-        .dot-clean { background: #fbbf24; }
-        .dot-maint { background: #9ca3af; }
+        .dot-avail { background: #059669; }
+        .dot-occ { background: #2563eb; }
+        .dot-clean { background: #d97706; }
+        .dot-maint { background: #6b7280; }
 
-        .text-emerald { color: #34d399; }
-        .text-blue { color: #60a5fa; }
+        .text-emerald { color: #059669; }
+        .text-blue { color: #2563eb; }
         .mt-4 { margin-top: 1.5rem; }
 
         @media (max-width: 992px) {

@@ -217,12 +217,17 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
           flex-direction: column;
           gap: 1.5rem;
         }
+        .pms-housekeeping-view {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
         .housekeeping-card {
-          background: #121822;
-          padding: 2rem;
-          border: 1px solid #1f2a3a;
-          border-radius: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          background: #ffffff;
+          padding: 1.75rem 2rem;
+          border: 1px solid rgba(197, 160, 89, 0.22);
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(14, 28, 23, 0.04);
         }
         .card-top-title {
           display: flex;
@@ -230,7 +235,7 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
           align-items: center;
           margin-bottom: 1.5rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid #1f2a3a;
+          border-bottom: 1px solid #f0ebe1;
         }
         .title-left {
           display: flex;
@@ -238,44 +243,54 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
           gap: 0.85rem;
         }
         .title-left h3 {
-          font-size: 1.3rem;
-          color: #f0f6fc;
-          font-family: 'Playfair Display', serif;
+          font-size: 1.35rem;
+          color: #0e201a;
+          font-family: var(--font-serif);
+          font-weight: 700;
+          margin: 0 0 0.2rem 0;
         }
         .title-left p {
-          font-size: 0.82rem;
-          color: #8b96a5;
+          font-size: 0.84rem;
+          color: #5a6b63;
+          margin: 0;
         }
 
         /* Attendance */
         .staff-attendance-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 1.5rem;
+          gap: 1.25rem;
         }
         .attendance-member-box {
-          background: #16202d;
+          background: #faf8f5;
           padding: 1.25rem;
-          border: 1px solid #233042;
-          border-radius: 8px;
+          border: 1.5px solid #ece6db;
+          border-radius: 10px;
           display: flex;
           flex-direction: column;
           gap: 1rem;
+          transition: all 0.2s ease;
+        }
+        .attendance-member-box:hover {
+          border-color: #c5a059;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(14, 28, 23, 0.05);
         }
         .member-info strong {
           display: block;
           font-size: 1.05rem;
-          color: #f0f6fc;
+          color: #0e201a;
+          font-weight: 700;
         }
         .member-info span {
           display: block;
           font-size: 0.82rem;
-          color: #8b96a5;
+          color: #5a6b63;
         }
         .member-info small {
           display: block;
-          font-size: 0.75rem;
-          color: #D4AF37;
+          font-size: 0.76rem;
+          color: #8a6d2b;
           font-weight: 600;
           margin-top: 0.2rem;
         }
@@ -290,19 +305,19 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
           align-items: center;
           justify-content: center;
           gap: 0.3rem;
-          padding: 0.4rem;
-          border: 1px solid #233042;
-          background: #0d121a;
-          font-size: 0.75rem;
+          padding: 0.45rem 0.2rem;
+          border: 1.5px solid #d9d2c5;
+          background: #ffffff;
+          font-size: 0.74rem;
           font-weight: 700;
-          color: #8b96a5;
-          border-radius: 4px;
-          transition: all var(--transition-smooth);
+          color: #5a6b63;
+          border-radius: 6px;
+          transition: all 0.2s;
           cursor: pointer;
         }
-        .btn-att.present.active { background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #34d399; }
-        .btn-att.rest.active { background: rgba(245, 158, 11, 0.2); border-color: #f59e0b; color: #fbbf24; }
-        .btn-att.absent.active { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #f87171; }
+        .btn-att.present.active { background: #ecfdf5; border-color: #10b981; color: #065f46; font-weight: 800; }
+        .btn-att.rest.active { background: #fffbeb; border-color: #f59e0b; color: #92400e; font-weight: 800; }
+        .btn-att.absent.active { background: #fef2f2; border-color: #ef4444; color: #991b1b; font-weight: 800; }
 
         /* Cleaning Rooms Grid */
         .cleaning-filter-pills {
@@ -310,35 +325,46 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
           gap: 0.5rem;
         }
         .clean-filter-btn {
-          font-size: 0.78rem;
+          font-size: 0.8rem;
           font-weight: 600;
-          padding: 0.4rem 0.8rem;
-          border-radius: 6px;
-          border: 1px solid #233042;
-          background: #16202d;
-          color: #8b96a5;
+          padding: 0.45rem 0.85rem;
+          border-radius: 8px;
+          border: 1.5px solid #d9d2c5;
+          background: #faf8f5;
+          color: #5a6b63;
           cursor: pointer;
+          transition: all 0.2s;
+        }
+        .clean-filter-btn:hover {
+          color: #0e201a;
+          border-color: #c5a059;
+          background: #ffffff;
         }
         .clean-filter-btn.active {
-          background: #D4AF37;
-          color: #0b0f15;
+          background: #0e201a;
+          color: #ffffff;
           font-weight: 700;
-          border-color: #D4AF37;
+          border-color: #0e201a;
         }
 
         .cleaning-rooms-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: 1rem;
+          gap: 1.15rem;
         }
         .cleaning-room-box {
-          background: #16202d;
-          border: 1px solid #233042;
-          padding: 1rem;
-          border-radius: 8px;
+          background: #faf8f5;
+          border: 1.5px solid #ece6db;
+          padding: 1.15rem;
+          border-radius: 10px;
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.85rem;
+          transition: all 0.2s ease;
+        }
+        .cleaning-room-box:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(14, 28, 23, 0.05);
         }
         .cleaning-room-box.inspected { border-top: 4px solid #10b981; }
         .cleaning-room-box.clean { border-top: 4px solid #34d399; }
@@ -348,19 +374,21 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
         .cleaning-box-head {
           display: flex;
           justify-content: space-between;
+          align-items: baseline;
         }
-        .room-num { font-size: 1.15rem; font-weight: 800; color: #f0f6fc; }
-        .room-fl { font-size: 0.75rem; color: #8b96a5; }
+        .room-num { font-size: 1.25rem; font-weight: 800; color: #0e201a; }
+        .room-fl { font-size: 0.74rem; color: #78857f; font-weight: 600; }
 
         .cleaning-box-status strong {
           display: block;
-          font-size: 0.88rem;
-          color: #f0f6fc;
+          font-size: 0.9rem;
+          color: #0e201a;
+          font-weight: 700;
         }
         .cleaning-box-status span {
           display: block;
-          font-size: 0.75rem;
-          color: #8b96a5;
+          font-size: 0.76rem;
+          color: #5a6b63;
         }
 
         .cleaning-action-buttons {
@@ -370,18 +398,19 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
         }
         .btn-status-act {
           flex: 1;
-          font-size: 0.7rem;
+          font-size: 0.72rem;
           font-weight: 700;
-          padding: 0.35rem 0.2rem;
-          border-radius: 4px;
-          border: 1px solid #233042;
-          background: #0d121a;
-          color: #c9d1d9;
+          padding: 0.4rem 0.2rem;
+          border-radius: 6px;
+          border: 1px solid #d9d2c5;
+          background: #ffffff;
+          color: #0e201a;
           cursor: pointer;
+          transition: all 0.2s;
         }
-        .btn-status-act.yellow:hover { background: rgba(245, 158, 11, 0.25); color: #fbbf24; border-color: #f59e0b; }
-        .btn-status-act.green:hover { background: rgba(16, 185, 129, 0.25); color: #34d399; border-color: #10b981; }
-        .btn-status-act.gold:hover { background: rgba(212, 175, 55, 0.25); color: #D4AF37; border-color: #D4AF37; }
+        .btn-status-act.yellow:hover { background: #fffbeb; color: #b45309; border-color: #f59e0b; }
+        .btn-status-act.green:hover { background: #ecfdf5; color: #065f46; border-color: #10b981; }
+        .btn-status-act.gold:hover { background: #fdfbf7; color: #8a6d2b; border-color: #c5a059; }
 
         /* Maintenance */
         .maintenance-split-grid {
@@ -392,7 +421,7 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
         .maintenance-form {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.15rem;
         }
         .maintenance-notes-list {
           display: flex;
@@ -402,30 +431,31 @@ export function PmsHousekeeping({ rooms, onUpdateCleaningStatus }) {
           overflow-y: auto;
         }
         .note-card-item {
-          background: #16202d;
-          border: 1px solid #233042;
-          border-radius: 6px;
-          padding: 0.85rem;
+          background: #faf8f5;
+          border: 1px solid #e8e3d9;
+          border-radius: 8px;
+          padding: 0.85rem 1rem;
           display: flex;
           align-items: center;
           gap: 0.75rem;
         }
         .note-room-tag {
           font-weight: 800;
-          background: #D4AF37;
-          color: #0b0f15;
-          padding: 0.2rem 0.4rem;
+          background: #0e201a;
+          color: #ffffff;
+          padding: 0.2rem 0.5rem;
           border-radius: 4px;
           font-size: 0.78rem;
         }
         .note-text {
           flex: 1;
-          font-size: 0.85rem;
-          color: #f0f6fc;
+          font-size: 0.86rem;
+          color: #0e201a;
+          font-weight: 500;
         }
         .note-date-tag {
-          font-size: 0.72rem;
-          color: #8b96a5;
+          font-size: 0.74rem;
+          color: #78857f;
         }
 
         @media (max-width: 900px) {
