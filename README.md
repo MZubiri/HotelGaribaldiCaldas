@@ -114,6 +114,45 @@ npm run build
 
 ---
 
+## 🐳 Despliegue en Producción (Docker Compose & Coolify en Oracle Cloud VPS)
+
+La plataforma cuenta con configuración de Docker multi-etapa (`node:22-alpine` + `nginx:alpine`) altamente optimizada para **Coolify** sobre instancias VPS de **Oracle Cloud Infrastructure (OCI)** (compatible tanto con procesadores **AMD/Intel x86_64** como con **ARM64 Ampere A1**).
+
+### 1. Despliegue con Docker Compose (Manual o CLI)
+```bash
+# Levantar el contenedor en segundo plano
+docker compose up -d --build
+
+# Verificar estado y logs
+docker compose ps
+docker compose logs -f
+```
+
+### 2. Despliegue Automatizado con Coolify
+1. En tu panel de **Coolify**, dirígete a tu proyecto y selecciona **+ New Resource**.
+2. Selecciona **Public Repository** (o Private con tu clave GitHub) e ingresa:
+   ```text
+   https://github.com/MZubiri/HotelGaribaldiCaldas
+   ```
+3. En **Build Pack**, Coolify detectará automáticamente `Docker Compose` (o selecciona **Docker Compose**).
+4. En la configuración del servicio:
+   - Asigna tu **Dominio FQDN** (ej. `https://hotelplazagaribaldi.com` o el subdominio de tu VPS). Coolify gestionará automáticamente los certificados SSL con Let's Encrypt mediante Traefik.
+   - El puerto expuesto por el contenedor es el `80` (manejado vía variable `${PORT:-80}`).
+5. Haz clic en **Deploy**. ¡Tu aplicación estará en línea en segundos!
+
+> [!TIP]
+> **Consejo para Oracle Cloud VPS (OCI):**  
+> Asegúrate de que las reglas de ingreso (*Ingress Rules*) en la **Security List** de tu VCN en Oracle Cloud permitan el tráfico entrante en los puertos **TCP 80 (HTTP)** y **TCP 443 (HTTPS)** desde `0.0.0.0/0`.  
+> Además, en el firewall del sistema operativo (Ubuntu/Debian de OCI), ejecuta si es necesario:
+> ```bash
+> sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+> sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
+> sudo netfilter-persistent save
+> ```
+
+---
+
+
 ## 🛠️ Tecnologías Utilizadas
 - **Frontend Core:** React 19, JavaScript (ES6+), HTML5 Semántico.
 - **Empaquetador & Dev Server:** Vite 8.
