@@ -2,7 +2,11 @@ import puppeteer from 'puppeteer-core';
 import path from 'path';
 import fs from 'fs';
 
-const EDGE_PATH = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+// Usar Edge o Chrome
+const BROWSER_PATH = fs.existsSync('C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe')
+  ? 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+  : 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+
 const CAPTURAS_DIR = path.resolve(process.cwd(), 'capturas');
 
 if (!fs.existsSync(CAPTURAS_DIR)) {
@@ -10,9 +14,9 @@ if (!fs.existsSync(CAPTURAS_DIR)) {
 }
 
 async function run() {
-  console.log('🚀 Iniciando navegador Edge Chromium...');
+  console.log(`🚀 Iniciando navegador Chromium (${BROWSER_PATH})...`);
   const browser = await puppeteer.launch({
-    executablePath: EDGE_PATH,
+    executablePath: BROWSER_PATH,
     headless: 'new',
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=1440,900']
   });
@@ -118,9 +122,10 @@ async function run() {
 
   // 11. ACCESO PMS & LOGIN
   console.log('👉 Accediendo a PMS Login...');
-  await page.goto('http://localhost:5173/?pms=true');
+  await page.goto('http://localhost:5173/pms-login', { waitUntil: 'networkidle2' });
   await page.waitForSelector('.quick-role-card');
   await takeShot('11_pms_portal_login.png');
+  await takeShot('pms_login_screen.png');
 
   // Iniciar sesión con Administradora General usando click real de Puppeteer
   console.log('👉 Iniciando sesión como Administradora General...');
@@ -147,10 +152,12 @@ async function run() {
     });
   };
 
-  // 12. PMS DASHBOARD DARK
-  console.log('👉 Capturando PMS Dashboard Dark...');
+  // 12. PMS DASHBOARD LUXURY
+  console.log('👉 Capturando PMS Dashboard Ejecutivo...');
   await switchPmsTab('Dashboard');
+  await takeShot('12_pms_dashboard_luxury.png');
   await takeShot('12_pms_dashboard_dark.png');
+  await takeShot('pms_dashboard_ejecutivo.png');
 
   // 13. PMS TAPE CHART (Calendario de Ocupación)
   console.log('👉 Capturando PMS Calendario de Ocupación (Tape Chart)...');
@@ -177,44 +184,89 @@ async function run() {
   await switchPmsTab('Housekeeping');
   await takeShot('17_pms_housekeeping.png');
 
-  // 18. PMS CAJA & FOLIOS
+  // 18. PMS CAJA & FOLIOS (ESTILOS Y SELECTS NUEVOS)
   console.log('👉 Capturando PMS Caja & Folios...');
   await switchPmsTab('Caja');
   await takeShot('18_pms_caja_folios.png');
+  await takeShot('pms_cajas_y_turnos.png');
 
-  // 19. PMS PERSONAL & PERMISOS
+  // 19. MODAL ARQUEO DE CAJA
+  console.log('👉 Abriendo Modal de Arqueo y Cierre de Turno...');
+  await page.evaluate(() => {
+    const arqueoBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Arqueo'));
+    if (arqueoBtn) arqueoBtn.click();
+  });
+  await page.evaluate(() => new Promise(r => setTimeout(r, 600)));
+  await takeShot('pms_cajas_arqueo_modal.png');
+  await page.evaluate(() => {
+    const closeBtn = document.querySelector('.btn-dialog-close, button.btn-luxury-outline');
+    if (closeBtn) closeBtn.click();
+  });
+  await page.evaluate(() => new Promise(r => setTimeout(r, 400)));
+
+  // 20. MODAL ABONO / PAGO
+  console.log('👉 Abriendo Modal de Registrar Abono...');
+  await page.evaluate(() => {
+    const payBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Abono') || b.textContent.includes('Pago'));
+    if (payBtn) payBtn.click();
+  });
+  await page.evaluate(() => new Promise(r => setTimeout(r, 600)));
+  await takeShot('pms_cajas_abono_modal.png');
+  await page.evaluate(() => {
+    const closeBtn = document.querySelector('.btn-dialog-close, button.btn-luxury-outline');
+    if (closeBtn) closeBtn.click();
+  });
+  await page.evaluate(() => new Promise(r => setTimeout(r, 400)));
+
+  // 21. PMS PERSONAL & PERMISOS
   console.log('👉 Capturando PMS Personal & Permisos...');
   await switchPmsTab('Personal');
   await takeShot('19_pms_usuarios_roles.png');
 
-  // 20. PMS AUDITORÍA & LOGS
+  // 22. PMS AUDITORÍA & LOGS
   console.log('👉 Capturando PMS Auditoría...');
   await switchPmsTab('Auditoría');
   await takeShot('20_pms_auditoria.png');
 
-  // 21 & 22. PMS EN MÓVIL (MENÚ COLAPSADO Y DESPLEGADO)
+  // 23 & 24. PMS EN MÓVIL (MENÚ COLAPSADO Y DESPLEGADO)
   console.log('👉 Cambiando a Viewport Móvil para PMS (390x844)...');
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+  await page.evaluate(() => new Promise(r => setTimeout(r, 600)));
+
+  // Asegurar que la sesión PMS sigue abierta
+  const isPmsMounted = await page.evaluate(() => !!document.querySelector('.pms-app-layout'));
+  if (!isPmsMounted) {
+    console.log('👉 Reactivando sesión PMS para móvil...');
+    await page.waitForSelector('.quick-role-card');
+    await page.click('.quick-role-card');
+    await page.waitForSelector('.pms-app-layout');
+    await page.evaluate(() => new Promise(r => setTimeout(r, 600)));
+  }
+
   await switchPmsTab('Dashboard');
   await page.evaluate(() => new Promise(r => setTimeout(r, 600)));
 
-  // 21. Menú colapsado en móvil
+  // 23. Menú colapsado en móvil
   console.log('👉 Capturando PMS Móvil Menú Colapsado...');
   await takeShot('21_pms_mobile_menu_colapsado.png');
 
-  // 22. Menú desplegado en móvil
+  // 24. Menú desplegado en móvil
   console.log('👉 Abriendo Drawer en PMS Móvil...');
-  await page.waitForSelector('.btn-pms-hamburger');
+  await page.waitForSelector('.btn-pms-hamburger', { timeout: 10000 });
   await page.click('.btn-pms-hamburger');
   await page.evaluate(() => new Promise(r => setTimeout(r, 800)));
   await takeShot('22_pms_mobile_menu_desplegado.png');
 
   // Cerrar Drawer usando el botón de colapsar
-  await page.waitForSelector('.btn-collapse-sidebar-mobile');
-  await page.click('.btn-collapse-sidebar-mobile');
+  const hasMobileCollapseBtn = await page.evaluate(() => !!document.querySelector('.btn-collapse-sidebar-mobile'));
+  if (hasMobileCollapseBtn) {
+    await page.click('.btn-collapse-sidebar-mobile');
+  } else {
+    await page.click('.btn-close-drawer');
+  }
   await page.evaluate(() => new Promise(r => setTimeout(r, 500)));
 
-  console.log('🎉 ¡Todas las 22 capturas fueron generadas y verificadas con éxito!');
+  console.log('🎉 ¡Todas las capturas fueron generadas y actualizadas con la nueva estética!');
   await browser.close();
 }
 

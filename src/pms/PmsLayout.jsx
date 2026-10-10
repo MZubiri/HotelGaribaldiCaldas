@@ -840,8 +840,6 @@ export function PmsLayout({
           padding: 0.75rem 1rem;
           font-size: 0.82rem;
           color: #0e1c17;
-        }-size: 0.8rem;
-          color: #c9d1d9;
         }
 
         /* RESPONSIVE & MOBILE DRAWER */

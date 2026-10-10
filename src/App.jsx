@@ -72,7 +72,7 @@ export function App() {
       const hash = window.location.hash.toLowerCase();
       const search = window.location.search.toLowerCase();
       
-      const adminKeywords = ['pms', 'dashboard', 'admin', 'panel'];
+      const adminKeywords = ['pms', 'pms-login', 'login', 'dashboard', 'admin', 'panel'];
       const matchesPath = adminKeywords.some(k => path === `/${k}` || path.startsWith(`/${k}/`));
       const matchesHash = adminKeywords.some(k => hash.includes(k));
       const matchesSearch = adminKeywords.some(k => search.includes(k));
