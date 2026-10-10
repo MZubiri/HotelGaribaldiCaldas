@@ -65,22 +65,43 @@ export function App() {
   const [roomForBooking, setRoomForBooking] = useState(null);
   const [roomForDetails, setRoomForDetails] = useState(null);
 
-  // Escuchar URL Hash o parámetro para acceso directo de colaboradores (#pms o ?pms)
+  // Escuchar URL Pathname, Hash o Parámetro para acceso de colaboradores (/pms, /dashboard, /admin, /panel, #pms, ?pms)
   React.useEffect(() => {
     const handleUrlRoute = () => {
-      if (window.location.hash === '#pms' || window.location.search.includes('pms')) {
+      const path = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      const search = window.location.search.toLowerCase();
+      
+      const adminKeywords = ['pms', 'dashboard', 'admin', 'panel'];
+      const matchesPath = adminKeywords.some(k => path === `/${k}` || path.startsWith(`/${k}/`));
+      const matchesHash = adminKeywords.some(k => hash.includes(k));
+      const matchesSearch = adminKeywords.some(k => search.includes(k));
+
+      if (matchesPath || matchesHash || matchesSearch) {
         setIsAdminView(true);
       }
     };
     handleUrlRoute();
     window.addEventListener('hashchange', handleUrlRoute);
-    return () => window.removeEventListener('hashchange', handleUrlRoute);
+    window.addEventListener('popstate', handleUrlRoute);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlRoute);
+      window.removeEventListener('popstate', handleUrlRoute);
+    };
   }, []);
+
+  // Salir del modo administrativo y restaurar URL
+  const handleExitAdmin = () => {
+    setIsAdminView(false);
+    if (window.location.pathname !== '/' || window.location.hash || window.location.search) {
+      window.history.pushState({}, '', '/');
+    }
+  };
 
   // Navegación con scroll al tope
   const handleNavigate = (pageId) => {
     setCurrentPage(pageId);
-    if (isAdminView) setIsAdminView(false);
+    if (isAdminView) handleExitAdmin();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -307,7 +328,7 @@ export function App() {
               setCurrentUser(user);
               logAction(user.name, 'Inicio de Sesión', `Acceso autenticado al PMS con rol: ${user.role}.`);
             }}
-            onCancel={() => setIsAdminView(false)}
+            onCancel={handleExitAdmin}
             staffUsers={staffUsers}
             rolePermissions={rolePermissions}
           />
@@ -315,7 +336,7 @@ export function App() {
           <PmsLayout 
             currentTab={currentPmsTab}
             onSelectTab={setCurrentPmsTab}
-            onBackToPortal={() => setIsAdminView(false)}
+            onBackToPortal={handleExitAdmin}
             currentUser={currentUser}
             onLogout={() => {
               logAction(currentUser?.name || 'Usuario', 'Cierre de Sesión', 'Salida de la sesión del PMS.');
