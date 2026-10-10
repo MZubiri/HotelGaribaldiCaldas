@@ -1,0 +1,645 @@
+/* ===================================================================
+   HOTEL PLAZA GARIBALDI - LUXURY EDITORIAL DESIGN SYSTEM & PMS STYLES
+   Estilo: Boutique Hotel de Alta Gama • Minimalismo y Espacios de Aire
+   Tipografías: Cormorant Garamond & Plus Jakarta Sans
+   =================================================================== */
+
+:root {
+  /* Paleta Editorial */
+  --color-primary: #0e201a;       /* Esmeralda Bosque Profundo */
+  --color-primary-light: #18372d;
+  --color-primary-soft: #274f42;
+  
+  --color-gold: #c5a059;          /* Oro Champagne Envejecido */
+  --color-gold-light: #ecdcb9;
+  --color-gold-dark: #9e7933;
+  --color-gold-border: rgba(197, 160, 89, 0.3);
+
+  --color-bone: #faf8f5;          /* Lino / Hueso Cálido */
+  --color-canvas: #f5f2ed;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fbf9f6;
+
+  --color-text-title: #0e1c17;
+  --color-text-body: #404b46;
+  --color-text-muted: #78857f;
+  --color-text-light: #f7f5f2;
+
+  --border-subtle: rgba(14, 32, 26, 0.08);
+  --border-line: rgba(14, 32, 26, 0.12);
+
+  /* Sombras Editoriales */
+  --shadow-editorial: 0 12px 35px rgba(14, 32, 26, 0.06);
+  --shadow-hover: 0 20px 50px rgba(14, 32, 26, 0.12);
+
+  /* Tipografías */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+  /* Transición */
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset y Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bone);
+  color: var(--color-text-body);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  color: var(--color-text-title);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+p {
+  color: var(--color-text-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===================================================================
+   UTILIDADES & LAYOUT
+   =================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Botones de Estilo de Lujo */
+.btn-luxury-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 0.85rem 2rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-primary);
+  transition: all var(--transition-smooth);
+}
+
+.btn-luxury-primary:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(14, 32, 26, 0.2);
+}
+
+.btn-luxury-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--color-gold);
+  color: #ffffff;
+  padding: 0.85rem 2rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--transition-smooth);
+}
+
+.btn-luxury-gold:hover {
+  background-color: var(--color-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.35);
+}
+
+.btn-luxury-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--color-primary);
+  padding: 0.8rem 1.8rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-line);
+  transition: all var(--transition-smooth);
+}
+
+.btn-luxury-outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-dark);
+  background: #ffffff;
+}
+
+.btn-luxury-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.btn-luxury-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold);
+  transition: width var(--transition-smooth);
+}
+
+.btn-luxury-text:hover::after {
+  background-color: var(--color-primary);
+}
+
+/* Títulos de Sección Editorial */
+.editorial-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 4rem;
+}
+
+.editorial-eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.editorial-title {
+  font-size: 3.2rem;
+  color: var(--color-text-title);
+  margin-bottom: 1.25rem;
+}
+
+.editorial-intro {
+  font-size: 1.05rem;
+  color: var(--color-text-body);
+  line-height: 1.7;
+}
+
+/* Separador Dorado Clásico */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-gold);
+  margin: 1.5rem auto;
+}
+
+/* Modales */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 18, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid var(--color-gold-border);
+}
+
+/* ===================================================================
+   ESTILOS PARA EL PMS HOTELERO (PANEL OPERATIVO DE LUJO DARK SLATE)
+   =================================================================== */
+
+.pms-app-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0b0f15;
+  color: #e6edf3;
+  font-family: var(--font-sans);
+}
+
+.pms-sidebar {
+  width: 260px;
+  background-color: #0f151e;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-right: 1px solid #1c2635;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 50;
+}
+
+.pms-sidebar.collapsed {
+  width: 72px;
+}
+
+.pms-main-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: #0b0f15;
+}
+
+.pms-header {
+  background-color: #121924;
+  padding: 0.95rem 1.75rem;
+  border-bottom: 1px solid #1c2635;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.pms-header-title h2 {
+  font-size: 1.25rem;
+  color: #f0f6fc;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  margin: 0;
+}
+
+.pms-header-date {
+  font-size: 0.78rem;
+  color: #8b96a5;
+}
+
+.pms-body {
+  padding: 2rem 2.25rem;
+  flex: 1;
+  overflow-y: auto;
+  background-color: #0b0f15;
+  color: #e6edf3;
+}
+
+/* Tablas y Contenedores Dark Premium */
+.pms-card-box, 
+.crud-table-card, 
+.res-table-card, 
+.crm-table-card, 
+.cashier-box-card {
+  background: #121822 !important;
+  border: 1px solid #1f2a3a !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+  color: #e6edf3 !important;
+  overflow: hidden;
+}
+
+.pms-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e6edf3;
+  text-align: left;
+}
+
+.pms-data-table th {
+  background: #16202d !important;
+  color: #8b96a5 !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 0.9rem 1rem !important;
+  border-bottom: 1px solid #223042 !important;
+  border-top: none !important;
+}
+
+.pms-data-table td {
+  padding: 0.95rem 1rem !important;
+  border-bottom: 1px solid #1a2432 !important;
+  font-size: 0.88rem !important;
+  color: #c9d1d9 !important;
+  vertical-align: middle;
+}
+
+.pms-data-table tr:hover td {
+  background-color: #17202d !important;
+}
+
+/* KPIs Hoteleros */
+.kpi-metric-card {
+  background: #121822 !important;
+  border: 1px solid #1f2a3a !important;
+  border-radius: 10px !important;
+  padding: 1.5rem !important;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.kpi-metric-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+.kpi-title {
+  color: #8b96a5 !important;
+  font-size: 0.76rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+.kpi-value {
+  color: #f0f6fc !important;
+  font-size: 2.1rem !important;
+  font-weight: 800 !important;
+  margin: 0.35rem 0 !important;
+}
+
+.kpi-foot {
+  color: #8b96a5 !important;
+  font-size: 0.78rem !important;
+}
+
+/* Toolbars, Inputs y Filtros */
+.pms-toolbar-card, .search-box-wrap {
+  background: #121822 !important;
+  border: 1px solid #1f2a3a !important;
+  border-radius: 8px !important;
+  color: #f0f6fc !important;
+}
+
+.search-box-wrap input, 
+.pms-toolbar-card input, 
+.pms-toolbar-card select,
+.pms-data-table input,
+.pms-data-table select {
+  background: #0d121a !important;
+  border: 1px solid #233042 !important;
+  color: #f0f6fc !important;
+  border-radius: 6px;
+  padding: 0.55rem 0.85rem;
+}
+
+.search-box-wrap input:focus, 
+.pms-toolbar-card input:focus,
+.pms-toolbar-card select:focus {
+  outline: none;
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+}
+
+.tab-btn {
+  background: #0d121a !important;
+  border: 1px solid #233042 !important;
+  color: #8b96a5 !important;
+}
+
+.tab-btn:hover {
+  color: #f0f6fc !important;
+  border-color: #D4AF37 !important;
+}
+
+.tab-btn.active {
+  background: #D4AF37 !important;
+  color: #0b0f15 !important;
+  font-weight: 700 !important;
+  border-color: #D4AF37 !important;
+}
+
+/* Status Pills */
+.status-pill.available { background: rgba(16, 185, 129, 0.12) !important; color: #34d399 !important; border: 1px solid rgba(16, 185, 129, 0.3) !important; }
+.status-pill.occupied { background: rgba(59, 130, 246, 0.12) !important; color: #60a5fa !important; border: 1px solid rgba(59, 130, 246, 0.3) !important; }
+.status-pill.cleaning { background: rgba(245, 158, 11, 0.12) !important; color: #fbbf24 !important; border: 1px solid rgba(245, 158, 11, 0.3) !important; }
+.status-pill.maintenance { background: rgba(107, 114, 128, 0.18) !important; color: #9ca3af !important; border: 1px solid rgba(107, 114, 128, 0.35) !important; }
+
+/* Tape Chart / Gantt Dark */
+.tape-chart-wrapper {
+  background: #121822 !important;
+  border: 1px solid #1f2a3a !important;
+  border-radius: 10px !important;
+  overflow-x: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+.tape-chart-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.tape-chart-table th, .tape-chart-table td {
+  border: 1px solid #1e2938 !important;
+  padding: 0.65rem 0.5rem;
+  text-align: center;
+}
+
+.tape-chart-table th {
+  background: #16202d !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+  color: #8b96a5 !important;
+  text-transform: uppercase !important;
+}
+
+.tape-room-cell {
+  background: #121822 !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  color: #f0f6fc !important;
+  text-align: left !important;
+  padding-left: 1rem !important;
+  width: 170px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.4) !important;
+}
+
+.tape-day-cell {
+  height: 48px;
+  position: relative;
+  background: #0f151f !important;
+}
+
+.tape-booking-bar {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+}
+
+.tape-booking-bar.vip {
+  background: linear-gradient(135deg, #D4AF37 0%, #aa8524 100%) !important;
+  color: #0b0f15 !important;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* ===================================================================
+   RESPONSIVE MASTER SYSTEM (TABLET & MOBILE OPTIMIZATIONS)
+   =================================================================== */
+
+@media (max-width: 992px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  .editorial-header {
+    margin-bottom: 2.5rem;
+  }
+  .editorial-title {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevenir zoom no deseado en Safari/iOS al enfocar inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  .container {
+    padding: 0 1.15rem;
+  }
+  .container-narrow {
+    padding: 0 1rem;
+  }
+
+  .editorial-title {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+  .editorial-intro {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .editorial-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* Reducir paddings gigantes de escritorio en móviles */
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  /* Modales en Móvil */
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+  .modal-content {
+    max-height: 94vh;
+    border-radius: 8px;
+  }
+
+  /* Botones adaptativos */
+  .btn-luxury-primary, .btn-luxury-gold, .btn-luxury-outline {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* PMS Toolbar & Tables */
+  .pms-toolbar-card {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 1rem;
+    padding: 1rem !important;
+  }
+  .pms-toolbar-left, .pms-toolbar-right {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+  .pms-toolbar-right button {
+    flex: 1;
+  }
+  .pms-search-input-wrap {
+    width: 100%;
+  }
+
+  /* Tablas con scroll horizontal suave */
+  .pms-table-responsive, .res-table-card, .tape-chart-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .editorial-title {
+    font-size: 1.85rem;
+  }
+  .btn-luxury-primary, .btn-luxury-gold, .btn-luxury-outline {
+    width: 100%;
+    text-align: center;
+  }
+}
+
