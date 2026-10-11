@@ -6,8 +6,6 @@ services:
     restart: unless-stopped
     expose:
       - "80"
-    ports:
-      - "${PORT:-3000}:80"
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1/healthz || exit 1"]
       interval: 20s
